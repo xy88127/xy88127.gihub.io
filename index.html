@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Luthien's Song</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shadow.css">
+
+
+    <style>
+        #div1 {
+            background-image: url("assets/Beren.png");
+        }
+
+
+        #div1 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color:darkgray;height:100vh;">
+    </div>
+    <div id="div1" class="container-fluid innershadow1" style="background-color:darkgray;height:1000vh;position:relative;">
+
+        <img id="song" data-top=0 data-left=25 data-width=20 src="assets/Luthien's_song_big.jpg.png" class="scrollable dropshadow1" style="position:absolute;width:200%;top:20%;left:5%;">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var div1_pos = $("#div1").offset().top;
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                var div1_scrolled = scrolled - div1_pos;
+                if (scrolled > div1_pos - winh / 2 && scrolled < div1_pos) {
+                    $("#song").addClass("jumpin");
+                } else {
+                    $("#song").removeClass("jumpin");
+                }
+
+                if (div1_scrolled > 0 && scrolled < space1_pos - winh) {
+                    $("#song").css('left', ($("#song").data('left') + div1_scrolled * 0.01) + '%');
+                    $("#song").css('top', ($("#song").data('top') + div1_scrolled * -0.055) + '%');
+
+                    console.log("div1_pos:" + div1_pos +
+                        "\tscrolled:" + scrolled +
+                        "\tspace1:" + space1_pos);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
