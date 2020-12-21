@@ -1,0 +1,112 @@
+/*這是單行註解*/
+/* background-color 設定底色*/
+/* width 設定區塊寬度*/
+/* 想要到同一行的width記得加起來要跟總寬度一樣*/
+/*clear可以阻止其他東西往上跑*/
+/*padding是邊框與內容之間的距離*/
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*用wrapper把所有東西包住，再置中*/
+#wrapper{
+    width: 800px;
+    margin:0 auto;
+}
+
+/*可是因為banner固定了（下面），下面三塊會被擋住，所以要再往下拉*/
+
+#content, #nav, #supporting{
+    margin-top: 100px;
+}
+
+#banner {
+    width: 800px;
+    height: 100px;
+    background-color: rgba(200,20,40,0.5);
+    clear:both;
+    position:fixed;
+}
+
+#nav {
+    margin-left: -100px;
+    color: chocolate;
+    width: 100px;
+    height: 200px;
+    float: left;
+    position:fixed;
+}
+
+#content {
+    background-color: darkblue;
+    color: aliceblue;
+    width: 700px;
+    height: 800px;
+    float: left;
+}
+
+#supporting {
+    background-color: azure;
+    width: 100px;
+    height: 200px;
+    float: left;
+    margin-left: 700px;
+    position: fixed;
+}
+
+#footer {
+    background-color: darkolivegreen;
+    width: 800px;
+    height: auto;
+    clear: both;
+}
+
+/*指定nav底下的ul才要靠左*/
+#nav ul{
+    padding-left: 10px;
+}
+
+
+/*為了避免超連結點下去東西跑到原畫面頂部被banner擋住，可以用padding修正，再用margin處理padding造成每段之間的空間*/
+#news, #intro, #photo{
+    padding-top: 100px;
+    margin-top:-100px;
+}
+
+/* "."代表class，用來選取多個物件*/
+.container{
+    padding: 10px;
+}
+
+#nav  li {
+    display:block;
+    margin-top:5px;
+    background-color: antiquewhite;
+    box-shadow:3px 3px 5px #888888;
+}
+
+#nav li a {
+    color:dimgray;   
+      text-decoration:none;
+}
+
+
+#photo .img img{
+    display: inline;
+    margin: 2px;
+    height: 150px;
+    width: 150px;
+    /* 如果要用長方形的圖，務必要設定長寬以避免照片變形*/
+    background-color: lightgray;
+    width: 120px;
+    height:120px;
+    border-radius: 50%;
+    border:2px solid rgba(0,0,0,0);
+}
+
+#photo .img a:hover img{
+    border:2px solid rgba(0,0,0,0.2);
+}
